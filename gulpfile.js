@@ -18,6 +18,11 @@ function scripts() {
     .pipe(browserSync.stream())
 }
 
+function fonts() {
+    return src('app/fonts/**/*')
+        .pipe(dest('dist/fonts'));
+}
+
 async function styles() {
     const autoprefixer = (await import('gulp-autoprefixer')).default;
 
@@ -32,6 +37,7 @@ async function styles() {
 function watching() {
     watch(['app/scss/style.scss'], styles)
     watch(['app/js/main.js'], scripts)
+    watch(['app/fonts/**/*'], fonts)
     watch(['app/*.html']).on('change', browserSync.reload);
 }
 
@@ -52,6 +58,8 @@ function building() {
     return src([
         'app/css/style.min.css',
         'app/js/main.min.js',
+        'app/fonts/**/*',
+        'app/img/**/*',
         'app/**/*.html'
     ], {base: 'app'})
     .pipe(dest('dist'))
@@ -61,6 +69,6 @@ exports.styles = styles;
 exports.scripts = scripts;
 exports.watching = watching;
 exports.browsersync = browsersync;
-exports.build = series(cleanDist, building);
+exports.build = series(cleanDist, parallel(styles, scripts, fonts), building);
 
 exports.default = parallel(styles, scripts, browsersync, watching);
