@@ -1,5 +1,8 @@
+@use 'variables.scss' as *;
+@use 'reset.scss' as *;
+
 .main {
     &-title {
-        color: #F1F2F3;
+        color: $base-color;
     }
 }
