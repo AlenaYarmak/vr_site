@@ -1,12 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.min.css">
     <title>VR</title>
 </head>
+
 <body>
-    <h1 class="main-title">Test title</h1>
+
+    <div class="wrapper">
+        <div class="container">
+            <section class="hero">
+                <header class="header">
+                    <div class="header__logo">LOGO</div>
+                    <nav class="header__menu">
+                        <div class="menu__item">About</div>
+                        <div class="menu__item">Services</div>
+                        <div class="menu__item">Technologies</div>
+                        <div class="menu__item">How to</div>
+                    </nav>
+                    <div class="header__contacts">
+                        <buttton class="header__contact-btn contact-us-btn">Contact Us</buttton>
+                        <buttton class="header__contact-btn join-us-btn">Join Hydra</buttton>
+                    </div>
+                </header>
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1 class="hero__title">
+                            <span class="hero__title-span">Dive</span>
+                            Into The Depths Of
+                            <span class="hero__title-span">Virtual Reality</span>
+                        </h1>
+                        <div class="hero__description">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Totam, nam ex? Enim quas corrupti blanditiis necessitatibus
+                            ab eligendi doloremque commodi alias.
+                        </div>
+                        <button class="hero__button">
+                            Build Your World
+                        </button>
+                    </div>
+                    <div class="hero__image-wrapper">
+                        <img class="hero__image" src="img/main_img.webp" alt="">
+                    </div>
+                </div>
+                <!-- slider -->
+                <div class="hero__slider">
+                    <button class="hero__arrow hero__arrow--prev" disabled>&larr;</button>
+                    <div class="hero__contacts-wrapper">
+                        <div class="hero__contacts">
+                            <div class="hero__contact">
+                                <img class="hero__contact-icon" src="img/location.svg"></img>
+                                <div class="hero__contact-text">
+                                    <div class="hero__contact-title">
+                                        Pay Us a Visit
+                                    </div>
+                                    <div class="hero__contact-subtitle">
+                                        Union St, Seattle, WA 98101, United States
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero__contact">
+                                <img class="hero__contact-icon" src="img/phone-call.svg"></img>
+                                <div class="hero__contact-text">
+                                    <div class="hero__contact-title">
+                                        Give Us a Call
+                                    </div>
+                                    <div class="hero__contact-subtitle">
+                                        (110) 1111-1010
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero__contact">
+                                <img class="hero__contact-icon" src="img/mail.svg"></img>
+                                <div class="hero__contact-text">
+                                    <div class="hero__contact-title">
+                                        Send Us a Message
+                                    </div>
+                                    <div class="hero__contact-subtitle">
+                                        Contact@HydraVTech.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="hero__arrow hero__arrow--next">&rarr;</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/main.min.js"></script>
 </body>
+
 </html>

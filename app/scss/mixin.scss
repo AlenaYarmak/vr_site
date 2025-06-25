@@ -1,0 +1,9 @@
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin button {
+    padding: 16px 34px;
+    border-radius: 40px;
+}
