@@ -11,7 +11,11 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat';
-    margin: 50px 84px;
+    margin: 25px 25px;
+
+    @media (min-width: $breakpoint-lg) {
+        margin: 50px 84px;
+    }
 }
 
 .container {
@@ -269,3 +273,58 @@ body {
     z-index: 1;
 }
 
+/* introdaction */
+
+.introdaction {
+    margin-top: 59px;
+    &__content {
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        color: $text-color;
+    }
+    &__title {
+        display: flex;
+        flex-direction: column;
+        font-size: 26px;
+    }
+    &__title-main {
+        font-weight: 700;
+    }
+    &__title-sub {
+        font-weight: 300;
+    }
+    &__text {
+        display: none;
+    }
+
+    @media (min-width: $breakpoint-sm) {
+
+    }
+    @media (min-width: $breakpoint-md) {
+        margin-top: 70px;
+        &__content {
+            justify-content: space-between;
+        }
+        &__text {
+            display: block;
+            max-width: 450px;
+        }   
+    }
+    @media (min-width: $breakpoint-lg) {
+        &__text {
+            display: block;
+            max-width: 550px;
+        }
+    }
+    @media (min-width: $breakpoint-xl) {
+        margin-top: 90px;
+        &__text {
+            display: block;
+            max-width: 650px;
+        }
+    }
+    &__title {
+        font-size: 36px;
+    }
+}
