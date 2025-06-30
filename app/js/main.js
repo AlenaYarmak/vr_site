@@ -1,16 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.hero__contacts');
-    const prev = document.querySelector('.hero__arrow--prev');
-    const next = document.querySelector('.hero__arrow--next');
-    const slides = document.querySelectorAll('.hero__contact');
-    const total = slides.length;
-    let index = 0;
+  const track = document.querySelector('.hero__contacts');
+  const prev = document.querySelector('.hero__arrow--prev');
+  const next = document.querySelector('.hero__arrow--next');
+  const slides = document.querySelectorAll('.hero__contact');
+  const total = slides.length;
+  let index = 0;
 
-    const update = () => {
+  const benefitTrack = document.querySelector('.benefits__slider');
+  const benefitPrev = document.querySelector('.benefits__arrow--prev');
+  const benefitNext = document.querySelector('.benefits__arrow--next');
+  const benefitSlides = document.querySelectorAll('.benefits__slider-item');
+  const benefitTotal = benefitSlides.length;
+  let benefitIndex = 0;
+
+  const update = () => {
     track.style.transform = `translateX(-${index * 33}%)`;
     prev.disabled = index === 0;
     next.disabled = index === total - 1;
+
   };
+
+  const benefitUpdate = () => {
+    benefitTrack.style.transform = `translateX(-${benefitIndex * 25}%)`;
+    benefitPrev.disabled = benefitIndex === 0;
+    benefitNext.disabled = benefitIndex === benefitTotal - 1;
+
+  };
+
+  benefitPrev.addEventListener('click', () => {
+    if (benefitIndex > 0) {
+      benefitIndex--;
+      benefitUpdate();
+    }
+  });
+
+  benefitNext.addEventListener('click', () => {
+    if (benefitIndex < benefitTotal - 1) {
+      benefitIndex++;
+      benefitUpdate();
+    }
+  });
 
   prev.addEventListener('click', () => {
     if (index > 0) {
