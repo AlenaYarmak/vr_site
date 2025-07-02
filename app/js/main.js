@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const benefitTotal = benefitSlides.length;
   let benefitIndex = 0;
 
+
+  window.addEventListener('resize', () => {
+    let screenWidth = window.innerWidth;
+    if (screenWidth > 1024) {
+      benefitTrack.style.transform = `translateX(0%)`;
+      benefitIndex = 0;
+    }
+    console.log(screenWidth);
+  })
+    
+
   const update = () => {
     track.style.transform = `translateX(-${index * 33}%)`;
     prev.disabled = index === 0;
@@ -21,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const benefitUpdate = () => {
-    benefitTrack.style.transform = `translateX(-${benefitIndex * 25}%)`;
+    benefitTrack.style.transform = `translateX(calc(-${benefitIndex * 25}% - (3px * ${benefitIndex})))`;
     benefitPrev.disabled = benefitIndex === 0;
     benefitNext.disabled = benefitIndex === benefitTotal - 1;
 
