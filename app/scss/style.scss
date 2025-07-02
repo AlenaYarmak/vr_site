@@ -111,7 +111,7 @@ body {
     display: flex;
     align-self: center;
     background: linear-gradient(to left, $icon-color, $gradient-color);
-    color: #343045;
+    color: $button-color;
 }
 
 .hero { 
@@ -146,7 +146,7 @@ body {
         @include button;
         border: none;
         background: linear-gradient(to left, $icon-color, $gradient-color);
-        color: #343045;
+        color: $button-color;
         font-weight: 700;
         font-size: 12px;
         text-transform: uppercase;
@@ -436,17 +436,46 @@ body {
     }
     &__arrow {
         position: absolute;
+        background: linear-gradient(to left, $icon-color, $gradient-color);
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        z-index: 99;
+    }
+    &__arrow-icon {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    &__arrow-icon::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 62px;
+        height: 62px;
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+    &__arrow-icon-img {
+        width: 100%;
+        height: 100%;
     }
     &__arrow--next {
         top: 50%;
         right: -15px;
-        z-index: 3;
         transform: rotate(180deg);
     }
     &__arrow--prev {
         top: 50%;
         left: -15px;
         z-index: 4;
+    }
+    &__arrow:hover .benefits__arrow-icon::before {
+        background-color: rgba(0, 0, 0, 0.13);
     }
 
     @media (min-width: $breakpoint-sm) {
@@ -486,6 +515,9 @@ body {
         &__text {
             max-width: 650px;
         }
+        &__arrow {
+            display: none;
+        }
     }
 }
 
@@ -499,13 +531,12 @@ body {
     justify-content: space-between;
     padding: 27px 37px 36px 33px;
     width: 100%;
-    min-height: 511px;
+    height: auto;
     &__image {
         border-radius: 50%;
         border: 14px solid rgba(0, 0, 0, 0.13);
         max-width: 219px;
         max-height: 219px;
-        height: 100%;
         width: 100%;
         margin-bottom: 21px;
     }
@@ -515,6 +546,7 @@ body {
         font-size: 24px;
         color: $text-color;
         flex-grow: 1;
+        /* margin-bottom: 39px; */
     }
     &__text {
         color: $text-color;
@@ -522,11 +554,22 @@ body {
         flex-grow: 1;
     }
     &__button {
-        height: 38px;
+        font-size: 14px;
+        font-weight: 700;
+        color: $button-color;
+        text-transform: uppercase;
+        min-height: 38px;
         width: 100%;
+        border-radius: 40px;
+        border: none;
+        background: linear-gradient(to left, $icon-color, $gradient-color);
+        margin-top: 35px;
     }
 
     @media (min-width: $breakpoint-xl) {
         padding: 27px 37px 36px 33px;
+        &__button {
+            max-width: 154px;
+        }
     }
 }
