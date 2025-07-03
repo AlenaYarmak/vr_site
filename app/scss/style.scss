@@ -545,12 +545,11 @@ body {
         font-weight: 700;
         font-size: 24px;
         color: $text-color;
-        flex-grow: 1;
-        /* margin-bottom: 39px; */
     }
     &__text {
         color: $text-color;
         text-align: justify;
+        padding-top: 39px;
         flex-grow: 1;
     }
     &__button {
@@ -570,6 +569,112 @@ body {
         padding: 27px 37px 36px 33px;
         &__button {
             max-width: 154px;
+        }
+    }
+}
+
+/* technologies */
+.technologies {
+    margin-top: 56px;
+    &__image {
+        border-radius: 60px;
+        background-image: url('../img/technologies-image.webp');
+        background-size: cover;
+        background-position: center top;
+        width: 100%;
+        padding-top: 163px;
+        position: relative;
+    }
+    &__content {
+        position: relative;
+    }
+    &__title {
+        display: flex;
+        flex-direction: column;
+        text-wrap: nowrap;
+        gap: 14px;
+        color: $text-color;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    &__title-main {
+        font-weight: 700;
+        font-size: 16px;
+    }
+    &__title-sub {
+        font-weight: 300;
+        font-size: 24px;
+    }
+    &__button {
+        position: relative;
+    }
+    &__button-icon::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+    &__button:hover .technologies__button-icon::before {
+        background-color: rgba(0, 0, 0, 0.13)
+    }
+    &__button-icon {
+        background: linear-gradient(to left, $icon-color, $gradient-color);
+        border-radius: 50%;
+        position: absolute;
+        bottom: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 70px;
+    }
+    &__button-img {
+        transform: rotate(270deg);
+        width: 100%;
+        height: 100%;
+    }
+    @media (min-width: $breakpoint-sm) {
+        &__image {
+            padding-top: 200px;
+        }
+    }
+
+    @media (min-width: $breakpoint-md) {
+        &__image {
+            padding-top: 250px;
+        }
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        &__title-main {
+            font-size: 26px;
+        }
+        &__title-sub {
+            font-size: 26px;
+        }
+    }
+
+    @media (min-width: $breakpoint-xl) {
+        &__image {
+            padding-top: 303px;
+        }
+        &__title {
+            gap: 11px;
+        }
+        &__title-main {
+            font-size: 36px;
+        }
+        &__title-sub {
+            font-size: 36px;
         }
     }
 }
