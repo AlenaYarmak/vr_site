@@ -13,6 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const benefitTotal = benefitSlides.length;
   let benefitIndex = 0;
 
+  const techTrack = document.querySelector('.technologies__company');
+  const techPrev = document.querySelector('.technologies__button-slider--prev');
+  const techNext = document.querySelector('.technologies__button-slider--next');
+  const techSlides = document.querySelectorAll('.technologies__company-item');
+  const techTotal = techSlides.length;
+  let techIndex = 0;
+
+  const reasonTrack = document.querySelector('.reason__slider');
+  const reasonPrev = document.querySelector('.reason__button-slider--prev');
+  const reasonNext = document.querySelector('.reason__button-slider--next');
+  const reasonSlides = document.querySelectorAll('.reason__slider-item');
+  const reasonTotal = reasonSlides.length;
+  let reasonIndex = 0;
 
   window.addEventListener('resize', () => {
     let screenWidth = window.innerWidth;
@@ -20,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
       benefitTrack.style.transform = `translateX(0%)`;
       benefitIndex = 0;
     }
-    console.log(screenWidth);
   })
     
 
@@ -31,11 +43,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   };
 
+  const techUpdate = () => {
+    techTrack.style.transform = `translateX(calc(-${techIndex * 25}% - (3px * ${techIndex})))`;
+    techPrev.disabled = techIndex === 0;
+    techNext.disabled = techIndex === techTotal - 1;
+  };
+
   const benefitUpdate = () => {
     benefitTrack.style.transform = `translateX(calc(-${benefitIndex * 25}% - (3px * ${benefitIndex})))`;
     benefitPrev.disabled = benefitIndex === 0;
     benefitNext.disabled = benefitIndex === benefitTotal - 1;
+  };
 
+  const reasonUpdate = () => {
+    reasonTrack.style.transform = `translateX(calc(-${reasonIndex * 25}% ))`;
+    reasonPrev.disabled = reasonIndex === 0;
+    reasonNext.disabled = reasonIndex === reasonTotal - 1;
   };
 
   benefitPrev.addEventListener('click', () => {
@@ -52,6 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  reasonPrev.addEventListener('click', () => {
+    if (reasonIndex > 0) {
+      reasonIndex--;
+      reasonUpdate();
+    }
+  });
+
+  reasonNext.addEventListener('click', () => {
+    if (reasonIndex < reasonTotal - 1) {
+      reasonIndex++;
+      reasonUpdate();
+    }
+  });
+
   prev.addEventListener('click', () => {
     if (index > 0) {
       index--;
@@ -62,10 +99,26 @@ document.addEventListener('DOMContentLoaded', () => {
   next.addEventListener('click', () => {
     if (index < total - 1) {
       index++;
-      console.log('click');
       update();
     }
   });
 
+  techPrev.addEventListener('click', () => {
+    if (techIndex > 0) {
+      techIndex--;
+      console.log('click in tech test');
+      techUpdate();
+    }
+  });
+
+  techNext.addEventListener('click', () => {
+    if (techIndex < techTotal - 1) {
+      techIndex++;
+      console.log('click in tech');
+      techUpdate();
+    }
+  });
+
   update();
-})
+
+});
