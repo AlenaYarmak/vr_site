@@ -121,4 +121,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   update();
 
+  /* labels */
+  const fields = document.querySelectorAll('.contact__field');
+
+    fields.forEach(field => {
+      const input = field.querySelector('input, textarea');
+      const label = field.querySelector('label');
+
+      const toggleLabel = () => {
+        if (input.value.trim() !== '' || document.activeElement === input) {
+          label.style.opacity = '0';
+        } else {
+          label.style.opacity = '1';
+        }
+      };
+
+      input.addEventListener('focus', toggleLabel);
+      input.addEventListener('input', toggleLabel);
+      input.addEventListener('blur', toggleLabel);
+
+      // init state on load
+      toggleLabel();
+    });
+
+    /* prevent page reloading */
+
+    const sibmit = document.querySelector('.contact__submit');
+
+    sibmit.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log('click');
+    })
+
 });
