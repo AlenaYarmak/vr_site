@@ -322,7 +322,6 @@ body {
         @include flex;
         justify-content: center;
         align-items: center;
-        color: $text-color;
     }
 
     &__title {
@@ -332,14 +331,16 @@ body {
     }
 
     &__title-main {
-        font-weight: 700;
+        @include text-title-bold;
     }
 
     &__title-sub {
-        font-weight: 300;
+        @include text-title-thin;
     }
 
     &__text {
+        color: $text-color;
+        font-size: 12px;
         display: none;
     }
 
@@ -371,11 +372,11 @@ body {
         &__text {
             display: block;
             max-width: 650px;
+            font-size: 16px;
         }
-    }
-
-    &__title {
-        font-size: 36px;
+        &__title {
+            font-size: 36px;
+        }
     }
 }
 
@@ -386,7 +387,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 51px;
-    color: $text-color;
     margin-top: 36px;
 
     &__image {
@@ -396,6 +396,7 @@ body {
     }
 
     &__text {
+        color: $text-color;
         font-size: 12px;
     }
 
@@ -404,11 +405,11 @@ body {
     }
 
     &__title-main {
-        font-weight: 700;
+        @include text-title-bold;
     }
 
     &__title-sub {
-        font-weight: 300;
+        @include text-title-thin;
     }
 
     @media (min-width: $breakpoint-sm) {
@@ -428,9 +429,16 @@ body {
         &__text {
             margin-top: 42px;
         }
+        &__image {
+            max-width: 380px;
+        }
     }
 
-    @media (min-width: $breakpoint-lg) {}
+    @media (min-width: $breakpoint-lg) {
+        &__image {
+            max-width: 400px;
+        }
+    }
 
     @media (min-width: $breakpoint-xl) {
         margin-top: 97px;
@@ -466,23 +474,21 @@ body {
 
     &__title {
         font-size: 26px;
-        color: $text-color;
-        text-transform: uppercase;
         display: flex;
         flex-direction: column;
     }
 
     &__title-main {
-        font-weight: 700;
+        @include text-title-bold;
     }
 
     &__title-sub {
-        font-weight: 300;
+        @include text-title-thin;
     }
 
     &__text {
         display: none;
-        font-size: 16px;
+        font-size: 12px;
         color: $text-color;
     }
 
@@ -591,6 +597,7 @@ body {
 
         &__text {
             max-width: 650px;
+            font-size: 16px;
         }
 
         &__arrow {
@@ -679,7 +686,6 @@ body {
         flex-direction: column;
         text-wrap: nowrap;
         gap: 14px;
-        color: $text-color;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -688,12 +694,12 @@ body {
     }
 
     &__title-main {
-        font-weight: 700;
+        @include text-title-bold;
         font-size: 16px;
     }
 
     &__title-sub {
-        font-weight: 300;
+        @include text-title-thin;
         font-size: 24px;
     }
 
@@ -869,19 +875,18 @@ body {
     }
 
     &__title {
-        text-transform: uppercase;
         display: flex;
         flex-direction: column;
         gap: 16px;
     }
 
     &__title-main {
-        font-weight: 700;
+        @include text-title-bold;
         font-size: 26px;
     }
 
     &__title-sub {
-        font-weight: 300;
+        @include text-title-thin;
         font-size: 26px;
     }
 
@@ -1050,7 +1055,6 @@ body {
             max-width: 650px;
         }
 
-        &__slider-title {}
     }
 }
 

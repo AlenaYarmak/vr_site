@@ -28,7 +28,7 @@ async function styles() {
 
     return src('app/scss/style.scss')
         .pipe(concat('style.min.css'))
-        .pipe(scss({ outputStyle: 'compressed'}))
+        .pipe(scss({ outputStyle: 'compressed'}).on('error', scss.logError))
         .pipe(autoprefixer({ overrideBrowserslist: ['last 3 versions']}))
         .pipe(dest('app/css'))
         .pipe(browserSync.stream());
