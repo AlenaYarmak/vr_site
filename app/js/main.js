@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       benefitIndex = 0;
     }
   })
-    
+
 
   const update = () => {
     track.style.transform = `translateX(-${index * 33}%)`;
@@ -124,33 +124,43 @@ document.addEventListener('DOMContentLoaded', () => {
   /* labels */
   const fields = document.querySelectorAll('.contact__field');
 
-    fields.forEach(field => {
-      const input = field.querySelector('input, textarea');
-      const label = field.querySelector('label');
+  fields.forEach(field => {
+    const input = field.querySelector('input, textarea');
+    const label = field.querySelector('label');
 
-      const toggleLabel = () => {
-        if (input.value.trim() !== '' || document.activeElement === input) {
-          label.style.opacity = '0';
-        } else {
-          label.style.opacity = '1';
-        }
-      };
+    const toggleLabel = () => {
+      if (input.value.trim() !== '' || document.activeElement === input) {
+        label.style.opacity = '0';
+      } else {
+        label.style.opacity = '1';
+      }
+    };
 
-      input.addEventListener('focus', toggleLabel);
-      input.addEventListener('input', toggleLabel);
-      input.addEventListener('blur', toggleLabel);
+    input.addEventListener('focus', toggleLabel);
+    input.addEventListener('input', toggleLabel);
+    input.addEventListener('blur', toggleLabel);
 
-      // init state on load
-      toggleLabel();
+    // init state on load
+    toggleLabel();
+  });
+
+  /* prevent page reloading */
+
+  const sibmit = document.querySelector('.contact__submit');
+
+  sibmit.addEventListener('click', (event) => {
+    event.preventDefault();
+  })
+
+  // Intersection Observer for better performance
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
     });
+  });
 
-    /* prevent page reloading */
-
-    const sibmit = document.querySelector('.contact__submit');
-
-    sibmit.addEventListener('click', (event) => {
-      event.preventDefault();
-      console.log('click');
-    })
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
 });

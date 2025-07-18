@@ -1250,3 +1250,47 @@ body {
         }
     }
 }
+
+/* social */
+
+.social {
+    margin-top: 56px;
+    &__title {
+        color: $text-color;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center
+    }
+    &__icon-wrapper {
+        @include flex;
+        padding: 29px;
+    }
+
+    @media (min-width: $breakpoint-sm) {
+        
+    }
+
+    @media (min-width: $breakpoint-md) {
+        
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        
+    }
+
+    @media (min-width: $breakpoint-xl) {
+       margin-top: 122px;
+    }
+}
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  &.in-view {
+    opacity: 1;
+    transform: none;
+  }
+}
