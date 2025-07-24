@@ -147,7 +147,12 @@ body {
         line-height: 1.5;
     }
 
+    &__title-subspan {
+        font-size: 24px;
+    }
+
     &__title-span {
+        font-size: 36px;
         background: linear-gradient($icon-color, $gradient-color);
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -236,6 +241,14 @@ body {
             flex-direction: row;
         }
 
+        &__title-subspan {
+            font-size: 30px;
+        }
+
+        &__title-span {
+            font-size: 38px;
+        }
+
         &__description {
             display: block;
         }
@@ -267,6 +280,14 @@ body {
     @media (min-width: $breakpoint-xl) {
         &__content {
             gap: 0;
+        }
+
+        &__title-subspan {
+            font-size: 40px;
+        }
+
+        &__title-span {
+            font-size: 46px;
         }
 
         &__text {
